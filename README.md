@@ -16,21 +16,21 @@ using data attributes: `data-react-bridge` and `data-react-prop-*`.
 
 First of all the React library as well as the bridge needs to be loaded:
 
-```
+```html
 <script type="text/javascript" src="react.js"></script>
 <script type="text/javascript" src="ReactDataBridge.js"></script>
 ```
 
 Afterwards your custom react components are loaded:
 
-```
+```html
 <script type="text/javascript" src="your-components.js"></script>
 ```
 
 Once the DOM has been rendered the bridge is applied against the whole document
 body in order to initialize everything:
 
-```
+```js
 var bridge = new ReactDataBridge()
 bridge.apply(document.body);
 ```
@@ -51,7 +51,7 @@ accordingly.
 The corresponding React component is automatically mounted inside the container
 marked this way: 
 
-```
+```html
 <div data-react-bridge="MyApp.HelloComponent" 
      data-react-prop-name="Jakob">
 </div>
