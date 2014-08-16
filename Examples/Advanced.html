@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript" src="../bower_components/react/react-with-addons.js"></script>
+        <script type="text/javascript">
+            window.MyApp = {};
+            window.MyApp.Hello = React.createClass({
+                render: function() {
+                    return React.DOM.h1({}, "Hello " + this.props.name);
+                }
+            });
+
+            window.MyApp.Link = React.createClass({
+                render: function() {
+                    return React.DOM.a({href: this.props.children}, this.props.children);
+                }
+            });
+
+            window.MyApp.WhoAmI = React.createClass({
+                render: function() {
+                    var definitions = [];
+                    var key, value;
+                    for (key in this.props.entries) {
+                        if (!this.props.entries.hasOwnProperty(key)) {
+                            continue;
+                        }
+                        value = this.props.entries[key];
+                        definitions.push(React.DOM.dt({}, key));
+                        if (value.indexOf("http://") === 0) {
+                            definitions.push(React.DOM.dd({}, MyApp.Link({}, value)));
+                        } else {
+                            definitions.push(React.DOM.dd({}, value));
+                        }
+                    }
+
+                    return React.DOM.dl({}, definitions);
+                }
+            });
+        </script>
+        <script type="text/javascript" src="../Package/Library/main.js"></script>
+
+        <h2>Normal HTML</h2>
+        <div data-react-bridge="MyApp.Hello" data-react-prop-name="Jakob"></div>
+        <div data-react-bridge="MyApp.WhoAmI" data-react-prop-entries='{
+            "Name": "Jakob Westhoff",
+            "Company": "Qafoo",
+            "Blog": "http://westhoffswelt.de",
+            "Contact": "jakob@westhoffswelt.de"
+        }'></div>
+        <h2>Normal HTML</h2>
+
+        <script type="text/javascript">
+            var bridge = new ReactDataBridge()
+            bridge.apply(document.body);
+        </script>
+    </body>
+</html>

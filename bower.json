@@ -1,0 +1,12 @@
+{
+  "name": "react-data-bridge",
+  "version": "0.0.1",
+  "authors": [
+    "Jakob Westhoff <jakob@westhoffswelt.de>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "react": "~0.11.1"
+  }
+}

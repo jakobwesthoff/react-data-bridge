@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript" src="../bower_components/react/react-with-addons.js"></script>
+        <script type="text/javascript">
+            window.MyApp = {};
+            window.MyApp.MyComponent = React.createClass({
+                render: function() {
+                    return React.DOM.h1({}, "Hello " + this.props.name);
+                }
+            });
+        </script>
+        <script type="text/javascript" src="../Package/Library/main.js"></script>
+
+        <h2>Normal HTML</h2>
+        <div data-react-bridge="MyApp.MyComponent" data-react-prop-name="Jakob"></div>
+        <h2>Normal HTML</h2>
+
+        <script type="text/javascript">
+            var bridge = new ReactDataBridge()
+            bridge.apply(document.body);
+        </script>
+    </body>
+</html>

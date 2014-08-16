@@ -1,0 +1,8 @@
+/.idea/
+/node_modules/
+/bower_components/
+/Distribution/
+/Temporary/
+/Package/
+/Public/
+/Logs/
