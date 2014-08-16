@@ -1,3 +1,4 @@
+/* global console */
 define([
     "react",
     "DataAttributeReader",
@@ -47,7 +48,9 @@ define([
             var componentName = this.reader_.get(target, "react-bridge");
             var Component = this.getComponent_(componentName);
             if (Component === undefined) {
-                console.warn("Invalid data-react-bridge component: ", componentName);
+                if (!!console) {
+                    console.warn("Invalid data-react-bridge component: ", componentName);
+                }
                 return;
             }
 
